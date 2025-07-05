@@ -18,7 +18,7 @@ const url = process.env.MONGO_URL;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-   origin: ["https://zerodha-dashboard-uu4u.onrender.com", "https://zerodha-clientside.onrender.com"], // your frontend's origin
+   origin: ["http://localhost:3000", "http://localhost:3001"], // your frontend's origin
   credentials: true                // if you're sending cookies or auth headers
 }));
 
@@ -190,10 +190,10 @@ app.use(cors({
 //   res.send("added.")
 // });
 
-// Serve frontend at /
-app.use(express.static(path.join(__dirname, "../frontend/build")));
-// Serve dashboard at /dashboard
-app.use("/dashboard", express.static(path.join(__dirname, "../dashboard/build")));
+// // Serve frontend at /
+// app.use(express.static(path.join(__dirname, "../frontend/build")));
+// // Serve dashboard at /dashboard
+// app.use("/dashboard", express.static(path.join(__dirname, "../dashboard/build")));
 
 app.use("/", authRoute);
 
